@@ -36,13 +36,25 @@ func write(lg *log.Logger, args ...any) {
 
 }
 
+// Fatal -
+func Fatal(a ...any) {
+	write(emergLog, a...)
+	os.Exit(1)
+}
+
+// Fatalf -
+func Fatalf(format string, a ...any) {
+	write(emergLog, fmt.Sprintf(format, a...))
+	os.Exit(1)
+}
+
 // Emerg -
 func Emerg(a ...any) {
 	write(emergLog, a...)
 }
 
 // Emergf -
-func Emergf(format string, a ...interface{}) {
+func Emergf(format string, a ...any) {
 	write(emergLog, fmt.Sprintf(format, a...))
 }
 
@@ -52,7 +64,7 @@ func Alert(a ...any) {
 }
 
 // Alertf -
-func Alertf(format string, a ...interface{}) {
+func Alertf(format string, a ...any) {
 	write(alertLog, fmt.Sprintf(format, a...))
 }
 
@@ -62,7 +74,7 @@ func Crit(a ...any) {
 }
 
 // Critf -
-func Critf(format string, a ...interface{}) {
+func Critf(format string, a ...any) {
 	write(critLog, fmt.Sprintf(format, a...))
 }
 
@@ -72,7 +84,7 @@ func Error(a ...any) {
 }
 
 // Errorf -
-func Errorf(format string, a ...interface{}) {
+func Errorf(format string, a ...any) {
 	write(errLog, fmt.Sprintf(format, a...))
 }
 
@@ -82,7 +94,7 @@ func Warning(a ...any) {
 }
 
 // Warningf -
-func Warningf(format string, a ...interface{}) {
+func Warningf(format string, a ...any) {
 	write(warningLog, fmt.Sprintf(format, a...))
 }
 
@@ -92,7 +104,7 @@ func Notice(a ...any) {
 }
 
 // Noticef -
-func Noticef(format string, a ...interface{}) {
+func Noticef(format string, a ...any) {
 	write(noticeLog, fmt.Sprintf(format, a...))
 }
 
@@ -102,7 +114,7 @@ func Info(a ...any) {
 }
 
 // Infof -
-func Infof(format string, a ...interface{}) {
+func Infof(format string, a ...any) {
 	write(infoLog, fmt.Sprintf(format, a...))
 }
 
@@ -112,7 +124,7 @@ func Debug(a ...any) {
 }
 
 // Debugf -
-func Debugf(format string, a ...interface{}) {
+func Debugf(format string, a ...any) {
 	write(debugLog, fmt.Sprintf(format, a...))
 }
 
