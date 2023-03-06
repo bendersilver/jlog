@@ -29,7 +29,7 @@ func write(lg *log.Logger, args ...any) {
 	var buf bytes.Buffer
 	defer buf.Reset()
 
-	_, fl, line, _ := runtime.Caller(3)
+	_, fl, line, _ := runtime.Caller(2)
 	fmt.Fprintf(&buf, "%s:%s:%d: ", path.Base(path.Dir(fl)), path.Base(fl), line)
 	fmt.Fprintln(&buf, args...)
 	lg.Printf("%s", buf.Bytes())
